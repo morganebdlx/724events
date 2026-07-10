@@ -13,7 +13,8 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const { data } = useData(); // Récupération des données du contexte : la propriété last n'existait pas dans ce que fournit useData()
+  const last = data?.events?.[data.events.length - 1]; // Récupération du dernier événement de la liste des événements
   return <>
     <header>
       <Menu />
